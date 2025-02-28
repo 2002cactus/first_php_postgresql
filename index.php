@@ -1,13 +1,9 @@
 <?php
-$host = "your-postgres-host"; // Render sẽ cung cấp
-$dbname = "your-database-name";
-$user = "your-db-user";
-$password = "your-db-password";
-
-$conn = pg_connect("host=$host dbname=$dbname user=$user password=$password");
+$conn = pg_connect("host=dpg-cv0v6itsvqrc73dsdau0-a dbname=admindb_vp8z user=admindb_vp8z_user password=MPpvVpXzANXVNuIfAvvIfXM9djJKAxou");
 
 if (!$conn) {
-    die("Kết nối PostgreSQL thất bại: " . pg_last_error());
+    die("Lỗi kết nối: " . pg_last_error());
+} else {
+    echo "Kết nối thành công!";
 }
-echo "Kết nối PostgreSQL thành công!";
 ?>
