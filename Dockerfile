@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install pdo_pgsql pgsql
 
 # Sao chép mã nguồn vào container
-COPY ./html /var/www/html/
+COPY ./ /var/www/html/
 
 # Phân quyền thư mục
 RUN chown -R www-data:www-data /var/www/html
