@@ -1,12 +1,13 @@
-# Sử dụng image PHP có Apache
+# Sử dụng PHP 8.1 với Apache
 FROM php:8.1-apache
 
-# Cài đặt các thư viện cần thiết
+# Cập nhật và cài đặt các thư viện cần thiết
 RUN apt-get update && apt-get install -y \
     libpq-dev \
+    && docker-php-ext-configure pgsql -with-pgsql=/usr/include/postgresql/ \
     && docker-php-ext-install pdo_pgsql pgsql
 
-# Cấu hình Apache
+# Sao chép mã nguồn vào container
 COPY ./html /var/www/html/
 
 # Phân quyền thư mục
