@@ -18,3 +18,6 @@ RUN chown -R www-data:www-data /var/www/html
 
 # Khởi động Apache
 CMD ["apache2-foreground"]
+
+COPY init_db.php /var/www/html/
+RUN php /var/www/html/init_db.php
