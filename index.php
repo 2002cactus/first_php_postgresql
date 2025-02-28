@@ -3,7 +3,7 @@ $host = getenv('DB_HOST');
 $port = getenv('DB_PORT');
 $dbname = getenv('DB_NAME');
 $user = getenv('DB_USER');
-$password = getenv('DB_PASSWORD');
+$password = getenv('DB_PASS');
 
 $conn = pg_connect("host=$host port=$port dbname=$dbname user=$user password=$password");
 
@@ -26,7 +26,7 @@ if (!$conn) {
     <h1>Chào mừng bạn đến với trang web PHP + PostgreSQL</h1>
     <p>Kết nối đến database: <strong><?php echo $dbname; ?></strong></p>
 
-    <h2>Dữ liệu trong bảng (Ví dụ: users)</h2>
+    <h2>Dữ liệu trong bảng users</h2>
     <table border="1">
         <tr>
             <th>ID</th>
