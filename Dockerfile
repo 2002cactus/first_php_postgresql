@@ -1,17 +1,16 @@
-# Sử dụng image PHP với Apache
+# Sử dụng image PHP có Apache
 FROM php:8.1-apache
 
-# Cài đặt PostgreSQL extension
-RUN docker-php-ext-install pgsql pdo_pgsql
+# Cài đặt các thư viện cần thiết
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    && docker-php-ext-install pdo_pgsql pgsql
 
-# Copy mã nguồn vào container
-COPY . /var/www/html/
+# Cấu hình Apache
+COPY ./html /var/www/html/
 
-# Cấp quyền cho thư mục
+# Phân quyền thư mục
 RUN chown -R www-data:www-data /var/www/html
 
-# Mở cổng 80
-EXPOSE 80
-
-# Chạy Apache
+# Khởi động Apache
 CMD ["apache2-foreground"]
