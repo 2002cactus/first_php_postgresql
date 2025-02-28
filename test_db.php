@@ -1,5 +1,5 @@
 <?php
-$conn = pg_connect("host=host dbname=admindb user=admin password=12345");
+$conn = pg_connect("host=dpg-cv0v6itsvqrc73dsdau0-a dbname=admindb_vp8z user=admindb_vp8z_user password=MPpvVpXzANXVNuIfAvvIfXM9djJKAxou");
 
 if (!$conn) {
     die("Lỗi kết nối: " . pg_last_error());
