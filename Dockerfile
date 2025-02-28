@@ -19,5 +19,9 @@ RUN chown -R www-data:www-data /var/www/html
 # Khởi động Apache
 CMD ["apache2-foreground"]
 
-COPY init_db.php /var/www/html/
-RUN php /var/www/html/init_db.php
+# Sao chép script entrypoint
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+# Chạy entrypoint khi container khởi động
+ENTRYPOINT ["/entrypoint.sh"]
