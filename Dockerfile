@@ -7,6 +7,9 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/include/postgresql/ \
     && docker-php-ext-install pdo_pgsql pgsql
 
+# Thêm cấu hình ServerName để tránh cảnh báo Apache
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+
 # Sao chép mã nguồn vào container
 COPY ./ /var/www/html/
 
