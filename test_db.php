@@ -1,9 +1,14 @@
 <?php
-$conn = pg_connect("host=dpg-cv0v6itsvqrc73dsdau0-a dbname=admindb_vp8z user=admindb_vp8z_user password=MPpvVpXzANXVNuIfAvvIfXM9djJKAxou");
+$host = getenv('DB_HOST');
+$dbname = getenv('DB_NAME');
+$user = getenv('DB_USER');
+$pass = getenv('DB_PASS');
+
+$conn = pg_connect("host=$host dbname=$dbname user=$user password=$pass");
 
 if (!$conn) {
     die("Lỗi kết nối: " . pg_last_error());
 } else {
-    echo "Kết nối PostgreSQL thành công!";
+    echo "Kết nối thành công!";
 }
 ?>
