@@ -1,15 +1,19 @@
 <?php
 $host = getenv('DB_HOST');
+$port = getenv('DB_PORT');
 $dbname = getenv('DB_NAME');
 $user = getenv('DB_USER');
-$pass = getenv('DB_PASS');
+$password = getenv('DB_PASSWORD');
 
-$conn = pg_connect("host=$host dbname=$dbname user=$user password=$pass");
+$conn = pg_connect("host=$host port=$port dbname=$dbname user=$user password=$password");
 
 if (!$conn) {
     die("Lỗi kết nối: " . pg_last_error());
+} else {
+    echo "Kết nối thành công!";
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="vi">
